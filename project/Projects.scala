@@ -24,10 +24,7 @@ object Projects extends Build {
 
   lazy val kamon = Project("kamon", file("."))
     .enablePlugins(CrossPerProjectPlugin)
-    .aggregate(kamonCore, kamonScala, kamonAkka, kamonSpray, kamonNewrelic, kamonPlayground, kamonTestkit,
-      kamonStatsD, kamonRiemann, kamonDatadog, kamonSPM, kamonSystemMetrics, kamonLogReporter, kamonAkkaRemote, kamonJdbc, kamonElasticsearch,
-      kamonAnnotation, kamonPlay23, kamonPlay24, kamonPlay25, kamonJMXReporter, kamonFluentd, kamonKhronus,
-      kamonAutoweave, kamonInfluxDB)
+    .aggregate(kamonCore, kamonScala, kamonStatsD, kamonInfluxDB)
     .settings(basicSettings: _*)
     .settings(formatSettings: _*)
     .settings(noPublishing: _*)
