@@ -37,8 +37,8 @@ case class BatchInfluxDBMetricsPacker(config: Config) extends InfluxDBMetricsPac
       val tags = generateTags(entity, metricKey) ++ entity.tags
 
       metricSnapshot match {
-        case hs: Histogram.Snapshot if !hs.isEmpty ⇒
-          packetBuilder.appendMeasurement(s"$application-timers", tags, histogramValues(hs), timestamp * 1000000)
+        case hs: Histogram.Snapshot ⇒
+          if (!hs.isEmpty) packetBuilder.appendMeasurement(s"$application-timers", tags, histogramValues(hs), timestamp * 1000000)
         case cs: Counter.Snapshot ⇒
           packetBuilder.appendMeasurement(s"$application-counters", tags, Map("value" -> BigDecimal(cs.count)), timestamp * 1000000)
       }
