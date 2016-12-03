@@ -34,7 +34,7 @@ case class BatchInfluxDBMetricsPacker(config: Config) extends InfluxDBMetricsPac
       (entity, snapshot) ← tick.metrics
       (metricKey, metricSnapshot) ← snapshot.metrics
     } {
-      val tags = generateTags(entity, metricKey) ++ entity.tags
+      def tags = generateTags(entity, metricKey) ++ entity.tags
 
       metricSnapshot match {
         case hs: Histogram.Snapshot ⇒
