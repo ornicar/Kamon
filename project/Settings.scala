@@ -19,7 +19,6 @@ import Keys._
 import com.typesafe.sbt.SbtScalariform
 import com.typesafe.sbt.SbtScalariform.ScalariformKeys
 import Publish.{settings => publishSettings}
-import Release.{settings => releaseSettings}
 import scalariform.formatter.preferences._
 
 object Settings {
@@ -51,7 +50,7 @@ object Settings {
       "-language:implicitConversions",
       "-Yinline-warnings",
       "-Xlog-reflective-calls"
-    )) ++ publishSettings ++ releaseSettings
+    )) ++ publishSettings
 
 
   def singleTestPerJvm(tests: Seq[TestDefinition], jvmSettings: Seq[String]): Seq[Group] =
