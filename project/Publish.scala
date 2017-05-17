@@ -21,12 +21,14 @@ object Publish {
   lazy val settings = Seq(
     crossPaths := true,
     pomExtra := kamonPomExtra,
-    publishTo := kamonRepo,
+    publishTo := lilaMaven,
     organization := "io.kamon",
     pomIncludeRepository := { x => false },
     publishMavenStyle := true,
     publishArtifact in Test := false
   )
+
+  def lilaMaven = Some(Resolver.file("file",  new File(sys.props.getOrElse("publishTo", ""))))
 
   def kamonRepo = Some(Resolver.sftp("Kamon Snapshots Repository", "snapshots.kamon.io", "/var/local/snapshots-repo"))
 

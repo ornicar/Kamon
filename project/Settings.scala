@@ -25,7 +25,7 @@ import scalariform.formatter.preferences._
 object Settings {
 
   val JavaVersion = "1.8"
-  val ScalaVersion = "2.11.8"
+  val ScalaVersion = "2.11.11"
 
   lazy val basicSettings = Seq(
     ivyScala := ivyScala.value map { _.copy(overrideScalaVersion = true) },

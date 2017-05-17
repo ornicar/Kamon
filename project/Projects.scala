@@ -24,7 +24,7 @@ object Projects extends Build {
 
   lazy val kamon = Project("kamon", file("."))
     .enablePlugins(CrossPerProjectPlugin)
-    .aggregate(kamonCore, kamonScala, kamonStatsD, kamonInfluxDB)
+    .aggregate(kamonCore, kamonScala, kamonInfluxDB)
     .settings(basicSettings: _*)
     .settings(formatSettings: _*)
     .settings(noPublishing: _*)
